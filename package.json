@@ -1,0 +1,8 @@
+{
+  "name": "chainsight-management-oracle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/horizonx-tech/chainsight-management-oracle.git",
+  "author": "hide-yoshi <hide-yoshi@users.noreply.github.com>",
+  "license": "MIT"
+}
