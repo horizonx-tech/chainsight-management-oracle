@@ -6,7 +6,7 @@ contract Oracle is IOracle {
     mapping(address => bytes) public data;
     function updateState(bytes calldata _data) external override {
         data[msg.sender] = _data;
-        emit StateUpdated(_data);
+        emit StateUpdated(msg.sender, _data);
     }
     function readAsString(address sender) external view override returns (string memory) {
         return abi.decode(data[sender], (string));
