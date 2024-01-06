@@ -20,4 +20,13 @@ contract Oracle is IOracle {
     function readAsUint64(address sender) external view override returns (uint64) {
         return abi.decode(data[sender], (uint64));
     }
+    function readAsInt256(address sender) external view override returns (int256) {
+        return abi.decode(data[sender], (int256));
+    }
+    function readAsInt128(address sender) external view override returns (int128) {
+        return abi.decode(data[sender], (int128));
+    }
+    function readAsInt64(address sender) external view override returns (int64) {
+        return abi.decode(data[sender], (int64));
+    }
 }
