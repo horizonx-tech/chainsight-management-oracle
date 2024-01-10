@@ -28,6 +28,10 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "compile": "hardhat compile"
+    "compile": "SKIP_LOAD=true hardhat compile --force && yarn gen",
+    "test": "yarn compile && hardhat test",
+    "gen": "SKIP_LOAD=true hardhat typechain",
+    "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy",
+    "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy"
   }
 }
