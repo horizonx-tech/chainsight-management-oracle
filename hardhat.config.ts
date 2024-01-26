@@ -1,8 +1,9 @@
-import { HardhatUserConfig, task } from "hardhat/config";
+import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import fs from "fs";
 import path from "path";
 import { HttpNetworkAccountsUserConfig } from "hardhat/types";
+
 require("dotenv").config();
 
 const MNEMONIC = process.env.MNEMONIC || "";
