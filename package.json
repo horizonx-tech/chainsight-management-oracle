@@ -13,6 +13,8 @@
     "@nomicfoundation/hardhat-verify": "^1.1.1",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/contracts-upgradeable": "^5.0.1",
+    "@openzeppelin/hardhat-upgrades": "^3.0.2",
     "@typechain/ethers-v6": "^0.5.1",
     "@typechain/hardhat": "^9.1.0",
     "@types/mocha": "^10.0.2",
@@ -31,7 +33,7 @@
     "compile": "SKIP_LOAD=true hardhat compile --force && yarn gen",
     "test": "yarn compile && hardhat test",
     "gen": "SKIP_LOAD=true hardhat typechain",
-    "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy",
-    "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy"
+    "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy --wait 3",
+    "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy --wait 3"
   }
 }
