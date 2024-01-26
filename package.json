@@ -33,7 +33,7 @@
     "compile": "SKIP_LOAD=true hardhat compile --force && yarn gen",
     "test": "yarn compile && hardhat test",
     "gen": "SKIP_LOAD=true hardhat typechain",
-    "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy",
-    "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy"
+    "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy --wait 3",
+    "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy --wait 3"
   }
 }

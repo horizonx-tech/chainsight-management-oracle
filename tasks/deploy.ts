@@ -3,7 +3,7 @@ import { Oracle, Oracle__factory } from "../typechain";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
 
-task("deploy", "Deploy the contracts", async (_, hre: HardhatRuntimeEnvironment) => {
+task("deploy", "Deploy the contracts").addOptionalParam("wait").setAction(async ({ wait }: { wait: number | undefined }, hre: HardhatRuntimeEnvironment) => {
   const { ethers, network, upgrades } = hre;
   const deployer: HardhatEthersSigner = (await ethers.getSigners())[0];
   console.log(`deployer: ${deployer.address}`)
@@ -14,7 +14,7 @@ task("deploy", "Deploy the contracts", async (_, hre: HardhatRuntimeEnvironment)
     { initializer: "initialize" }
   )) as unknown as Oracle;
   console.log(`Oracle deployed tx: ${oracle.deploymentTransaction()?.hash}`)
-  await oracle.deploymentTransaction()?.wait(3);
+  await oracle.deploymentTransaction()?.wait(wait);
   const deployedAddress = await oracle.getAddress();
   console.log(`Oracle deployed to: ${deployedAddress}`);
 
@@ -24,4 +24,6 @@ task("deploy", "Deploy the contracts", async (_, hre: HardhatRuntimeEnvironment)
       constructorArguments: [],
     });
   }
+
+  return oracle;
 });
