@@ -2,8 +2,10 @@ import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import fs from "fs";
 import path from "path";
+import { HttpNetworkAccountsUserConfig } from "hardhat/types";
 require("dotenv").config();
 
+const MNEMONIC = process.env.MNEMONIC || "";
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
 const tasksPath = path.join(__dirname, "tasks");
 if (!SKIP_LOAD) {
@@ -13,6 +15,13 @@ if (!SKIP_LOAD) {
       require(`${tasksPath}/${task}`);
     });
 }
+
+const ACCOUNTS: HttpNetworkAccountsUserConfig = {
+  mnemonic: MNEMONIC,
+  path: "m/44'/60'/0'/0",
+  initialIndex: 0,
+  count: 20,
+};
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -53,31 +62,19 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
       accounts: {
+        ...ACCOUNTS,
         mnemonic: "test test test test test test test test test test test junk",
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 10,
-      },
+      }
     },
     sepolia: {
       chainId: 11155111,
       url: "https://endpoints.omniatech.io/v1/eth/sepolia/public",
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 10,
-      },
+      accounts: ACCOUNTS,
     },
     scrollSepolia: {
       chainId: 534351,
       url: "https://rpc.ankr.com/scroll_sepolia_testnet",
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 10,
-      },
+      accounts: ACCOUNTS,
     },
   },
 };
