@@ -1,17 +1,27 @@
 import { task } from "hardhat/config";
-import { Signer } from "ethers";
-import { Oracle__factory } from "../typechain-types";
+import { Oracle, Oracle__factory } from "../typechain";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
 
 task("deploy", "Deploy the contracts", async (_, hre: HardhatRuntimeEnvironment) => {
-  const { ethers } = hre;
-  const deployer: Signer = (await ethers.getSigners())[0];
-  const oracle = await new Oracle__factory().connect(deployer).deploy();
-  console.log("Oracle deployed to:", await oracle.getAddress());
-  await oracle.deploymentTransaction()?.wait(3);
+  const { ethers, network, upgrades } = hre;
+  const deployer: HardhatEthersSigner = (await ethers.getSigners())[0];
+  console.log(`deployer: ${deployer.address}`)
+  console.log(`network: ${network.name}`)
 
-  await hre.run("verify:verify", {
-    address: await oracle.getAddress(),
-    constructorArguments: [],
-  });
+  const oracle = (await upgrades.deployProxy(
+    new Oracle__factory(deployer),
+    { initializer: "initialize" }
+  )) as unknown as Oracle;
+  console.log(`Oracle deployed tx: ${oracle.deploymentTransaction()?.hash}`)
+  await oracle.deploymentTransaction()?.wait(3);
+  const deployedAddress = await oracle.getAddress();
+  console.log(`Oracle deployed to: ${deployedAddress}`);
+
+  if (network.name !== "hardhat") {
+    await hre.run("verify:verify", {
+      address: deployedAddress,
+      constructorArguments: [],
+    });
+  }
 });

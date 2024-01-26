@@ -2,9 +2,18 @@
 pragma solidity ^0.8.0;
 
 import "./interfaces/IOracle.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract Oracle is IOracle {
+contract Oracle is IOracle, Initializable {
+    uint64 public version;
     mapping(address => bytes) public data;
+
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor() initializer {}
+
+    function initialize() external initializer {
+        version = 1;
+    }
 
     function updateState(bytes calldata _data) external override {
         data[msg.sender] = _data;
