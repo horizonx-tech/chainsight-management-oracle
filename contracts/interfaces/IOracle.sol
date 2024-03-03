@@ -2,6 +2,11 @@
 pragma solidity ^0.8.0;
 
 interface IOracle {
+    struct Value {
+        bytes data;
+        uint64 timestamp;
+    }
+
     event StateUpdated(address indexed sender, bytes data);
 
     function updateState(bytes calldata data) external;
@@ -61,4 +66,39 @@ interface IOracle {
         address sender,
         bytes32 key
     ) external view returns (int64);
+
+    function readAsStringWithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (string memory, uint64);
+
+    function readAsUint256WithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (uint256, uint64);
+
+    function readAsUint128WithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (uint128, uint64);
+
+    function readAsUint64WithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (uint64, uint64);
+
+    function readAsInt256WithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (int256, uint64);
+
+    function readAsInt128WithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (int128, uint64);
+
+    function readAsInt64WithTimestamp(
+        address sender,
+        bytes32 key
+    ) external view returns (int64, uint64);
 }

@@ -10,7 +10,7 @@ contract Oracle is IOracle, Initializable {
 
     string public constant E_LENGTH_MISMATCH = "data and keys length mismatch";
 
-    mapping(address => mapping(bytes32 => bytes)) public data;
+    mapping(address => mapping(bytes32 => Value)) public data;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() initializer {}
@@ -24,8 +24,9 @@ contract Oracle is IOracle, Initializable {
         bytes32[] calldata keys
     ) external override {
         require(_data.length == keys.length, E_LENGTH_MISMATCH);
+        uint64 timestamp = _blockTimestamp();
         for (uint256 i = 0; i < _data.length; i++) {
-            _updateState(_data[i], keys[i]);
+            _updateState(_data[i], keys[i], timestamp);
         }
     }
 
@@ -37,148 +38,230 @@ contract Oracle is IOracle, Initializable {
         _updateState(_data, DEFAULT_KEY);
     }
 
-    function readAsString(
+    function readAsStringWithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (string memory) {
+    ) external view override returns (string memory, uint64) {
         return _readAsString(sender, key);
     }
 
-    function readAsUint256(
+    function readAsUint256WithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (uint256) {
+    ) external view override returns (uint256, uint64) {
         return _readAsUint256(sender, key);
     }
 
-    function readAsUint128(
+    function readAsUint128WithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (uint128) {
+    ) external view override returns (uint128, uint64) {
         return _readAsUint128(sender, key);
     }
 
-    function readAsUint64(
+    function readAsUint64WithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (uint64) {
+    ) external view override returns (uint64, uint64) {
         return _readAsUint64(sender, key);
     }
 
-    function readAsInt256(
+    function readAsInt256WithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (int256) {
+    ) external view override returns (int256, uint64) {
         return _readAsInt256(sender, key);
     }
 
-    function readAsInt128(
+    function readAsInt128WithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (int128) {
+    ) external view override returns (int128, uint64) {
         return _readAsInt128(sender, key);
     }
 
-    function readAsInt64(
+    function readAsInt64WithTimestamp(
         address sender,
         bytes32 key
-    ) external view override returns (int64) {
+    ) external view override returns (int64, uint64) {
         return _readAsInt64(sender, key);
     }
 
     function readAsString(
+        address sender,
+        bytes32 key
+    ) external view override returns (string memory) {
+        (string memory value, ) = _readAsString(sender, key);
+        return value;
+    }
+
+    function readAsUint256(
+        address sender,
+        bytes32 key
+    ) external view override returns (uint256) {
+        (uint256 value, ) = _readAsUint256(sender, key);
+        return value;
+    }
+
+    function readAsUint128(
+        address sender,
+        bytes32 key
+    ) external view override returns (uint128) {
+        (uint128 value, ) = _readAsUint128(sender, key);
+        return value;
+    }
+
+    function readAsUint64(
+        address sender,
+        bytes32 key
+    ) external view override returns (uint64) {
+        (uint64 value, ) = _readAsUint64(sender, key);
+        return value;
+    }
+
+    function readAsInt256(
+        address sender,
+        bytes32 key
+    ) external view override returns (int256) {
+        (int256 value, ) = _readAsInt256(sender, key);
+        return value;
+    }
+
+    function readAsInt128(
+        address sender,
+        bytes32 key
+    ) external view override returns (int128) {
+        (int128 value, ) = _readAsInt128(sender, key);
+        return value;
+    }
+
+    function readAsInt64(
+        address sender,
+        bytes32 key
+    ) external view override returns (int64) {
+        (int64 value, ) = _readAsInt64(sender, key);
+        return value;
+    }
+
+    function readAsString(
         address sender
     ) external view override returns (string memory) {
-        return _readAsString(sender, DEFAULT_KEY);
+        (string memory value, ) = _readAsString(sender, DEFAULT_KEY);
+        return value;
     }
 
     function readAsUint256(
         address sender
     ) external view override returns (uint256) {
-        return _readAsUint256(sender, DEFAULT_KEY);
+        (uint256 value, ) = _readAsUint256(sender, DEFAULT_KEY);
+        return value;
     }
 
     function readAsUint128(
         address sender
     ) external view override returns (uint128) {
-        return _readAsUint128(sender, DEFAULT_KEY);
+        (uint128 value, ) = _readAsUint128(sender, DEFAULT_KEY);
+        return value;
     }
 
     function readAsUint64(
         address sender
     ) external view override returns (uint64) {
-        return _readAsUint64(sender, DEFAULT_KEY);
+        (uint64 value, ) = _readAsUint64(sender, DEFAULT_KEY);
+        return value;
     }
 
     function readAsInt256(
         address sender
     ) external view override returns (int256) {
-        return _readAsInt256(sender, DEFAULT_KEY);
+        (int256 value, ) = _readAsInt256(sender, DEFAULT_KEY);
+        return value;
     }
 
     function readAsInt128(
         address sender
     ) external view override returns (int128) {
-        return _readAsInt128(sender, DEFAULT_KEY);
+        (int128 value, ) = _readAsInt128(sender, DEFAULT_KEY);
+        return value;
     }
 
     function readAsInt64(
         address sender
     ) external view override returns (int64) {
-        return _readAsInt64(sender, DEFAULT_KEY);
+        (int64 value, ) = _readAsInt64(sender, DEFAULT_KEY);
+        return value;
     }
 
     function _updateState(bytes calldata _data, bytes32 key) internal {
-        data[msg.sender][key] = _data;
+        _updateState(_data, key, _blockTimestamp());
+    }
+
+    function _updateState(
+        bytes calldata _data,
+        bytes32 key,
+        uint64 timestamp
+    ) internal {
+        data[msg.sender][key] = Value(_data, timestamp);
         emit StateUpdated(msg.sender, _data);
     }
 
     function _readAsString(
         address sender,
         bytes32 key
-    ) internal view returns (string memory) {
-        return abi.decode(data[sender][key], (string));
+    ) internal view returns (string memory, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (string)), value.timestamp);
     }
 
     function _readAsUint256(
         address sender,
         bytes32 key
-    ) internal view returns (uint256) {
-        return abi.decode(data[sender][key], (uint256));
+    ) internal view returns (uint256, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (uint256)), value.timestamp);
     }
 
     function _readAsUint128(
         address sender,
         bytes32 key
-    ) internal view returns (uint128) {
-        return abi.decode(data[sender][key], (uint128));
+    ) internal view returns (uint128, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (uint128)), value.timestamp);
     }
 
     function _readAsUint64(
         address sender,
         bytes32 key
-    ) internal view returns (uint64) {
-        return abi.decode(data[sender][key], (uint64));
+    ) internal view returns (uint64, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (uint64)), value.timestamp);
     }
 
     function _readAsInt256(
         address sender,
         bytes32 key
-    ) internal view returns (int256) {
-        return abi.decode(data[sender][key], (int256));
+    ) internal view returns (int256, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (int256)), value.timestamp);
     }
 
     function _readAsInt128(
         address sender,
         bytes32 key
-    ) internal view returns (int128) {
-        return abi.decode(data[sender][key], (int128));
+    ) internal view returns (int128, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (int128)), value.timestamp);
     }
 
     function _readAsInt64(
         address sender,
         bytes32 key
-    ) internal view returns (int64) {
-        return abi.decode(data[sender][key], (int64));
+    ) internal view returns (int64, uint64) {
+        Value memory value = data[sender][key];
+        return (abi.decode(value.data, (int64)), value.timestamp);
+    }
+
+    function _blockTimestamp() internal view returns (uint64) {
+        return uint64(block.timestamp);
     }
 }
