@@ -21,7 +21,9 @@ describe("Oracle", () => {
     it("string", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["string"], ["value"]);
-      await oracle.updateStateByKey(value, key);
+      await expect(oracle.updateStateByKey(value, key))
+        .to.emit(oracle, "StateUpdated")
+        .withArgs(signer.address, value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -87,6 +89,13 @@ describe("Oracle", () => {
       expect(
         await oracle["readAsInt64(address,bytes32)"](signer.address, key)
       ).to.eq(abiCode.decode(["int64"], value)[0]);
+    });
+    it("emit event", async () => {
+      const key = keccak256(toUtf8Bytes("string"));
+      const value = abiCode.encode(["string"], ["value"]);
+      await expect(oracle.updateStateByKey(value, key))
+        .to.emit(oracle, "StateUpdated")
+        .withArgs(signer.address, value, key);
     });
   });
   describe("write without key", () => {
@@ -162,6 +171,12 @@ describe("Oracle", () => {
         abiCode.decode(["int64"], value)[0]
       );
     });
+    it("emit event", async () => {
+      const value = abiCode.encode(["string"], ["value"]);
+      await expect(oracle.updateState(value))
+        .to.emit(oracle, "StateUpdated")
+        .withArgs(signer.address, value, key);
+    });
   });
   describe("write bulk", () => {
     const abiCode = new AbiCoder();
@@ -187,7 +202,14 @@ describe("Oracle", () => {
         keccak256(toUtf8Bytes(`key_${i}`))
       );
 
-      await oracle.updateStateBulk(values, keys);
+      const tx = oracle.updateStateBulk(values, keys);
+      await Promise.all(
+        values.map((value, i) =>
+          expect(tx)
+            .to.emit(oracle, "StateUpdated")
+            .withArgs(signer.address, value, keys[i])
+        )
+      );
 
       expect(
         await oracle["readAsString(address,bytes32)"](signer.address, keys[0])

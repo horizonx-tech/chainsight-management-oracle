@@ -205,7 +205,7 @@ contract Oracle is IOracle, Initializable {
         uint64 timestamp
     ) internal {
         data[msg.sender][key] = Value(_data, timestamp);
-        emit StateUpdated(msg.sender, _data);
+        emit StateUpdated(msg.sender, _data, key);
     }
 
     function _readAsString(
