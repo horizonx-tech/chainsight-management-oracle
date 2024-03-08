@@ -11,9 +11,9 @@ interface IOracle {
 
     function updateState(bytes calldata data) external;
 
-    function updateState(bytes calldata data, bytes32 key) external;
+    function updateStateByKey(bytes calldata data, bytes32 key) external;
 
-    function updateState(
+    function updateStateBulk(
         bytes[] calldata data,
         bytes32[] calldata keys
     ) external;

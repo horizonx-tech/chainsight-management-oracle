@@ -19,7 +19,7 @@ contract Oracle is IOracle, Initializable {
         version = 1;
     }
 
-    function updateState(
+    function updateStateBulk(
         bytes[] calldata _data,
         bytes32[] calldata keys
     ) external override {
@@ -30,7 +30,10 @@ contract Oracle is IOracle, Initializable {
         }
     }
 
-    function updateState(bytes calldata _data, bytes32 key) external override {
+    function updateStateByKey(
+        bytes calldata _data,
+        bytes32 key
+    ) external override {
         _updateState(_data, key);
     }
 

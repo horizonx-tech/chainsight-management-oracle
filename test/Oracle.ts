@@ -21,7 +21,7 @@ describe("Oracle", () => {
     it("string", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["string"], ["value"]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -31,7 +31,7 @@ describe("Oracle", () => {
     it("uint256", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["uint256"], [2n ** 256n - 1n]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -41,7 +41,7 @@ describe("Oracle", () => {
     it("uint128", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["uint128"], [2n ** 128n - 1n]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -51,7 +51,7 @@ describe("Oracle", () => {
     it("uint64", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["uint64"], [2n ** 64n - 1n]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -61,7 +61,7 @@ describe("Oracle", () => {
     it("int256", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["int256"], [2n ** 128n - 1n]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -71,7 +71,7 @@ describe("Oracle", () => {
     it("int128", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["int128"], [2n ** 64n - 1n]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -81,7 +81,7 @@ describe("Oracle", () => {
     it("int64", async () => {
       const key = keccak256(toUtf8Bytes("string"));
       const value = abiCode.encode(["int64"], [2n ** 32n - 1n]);
-      await oracle["updateState(bytes,bytes32)"](value, key);
+      await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(
@@ -101,7 +101,7 @@ describe("Oracle", () => {
     });
     it("string", async () => {
       const value = abiCode.encode(["string"], ["value"]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsString(address)"](signer.address)).to.eq(
@@ -110,7 +110,7 @@ describe("Oracle", () => {
     });
     it("uint256", async () => {
       const value = abiCode.encode(["uint256"], [2n ** 256n - 1n]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsUint256(address)"](signer.address)).to.eq(
@@ -119,7 +119,7 @@ describe("Oracle", () => {
     });
     it("uint128", async () => {
       const value = abiCode.encode(["uint128"], [2n ** 128n - 1n]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsUint128(address)"](signer.address)).to.eq(
@@ -128,7 +128,7 @@ describe("Oracle", () => {
     });
     it("uint64", async () => {
       const value = abiCode.encode(["uint64"], [2n ** 64n - 1n]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsUint64(address)"](signer.address)).to.eq(
@@ -137,7 +137,7 @@ describe("Oracle", () => {
     });
     it("int256", async () => {
       const value = abiCode.encode(["int256"], [2n ** 128n - 1n]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsInt256(address)"](signer.address)).to.eq(
@@ -146,7 +146,7 @@ describe("Oracle", () => {
     });
     it("int128", async () => {
       const value = abiCode.encode(["int128"], [2n ** 64n - 1n]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsInt128(address)"](signer.address)).to.eq(
@@ -155,7 +155,7 @@ describe("Oracle", () => {
     });
     it("int64", async () => {
       const value = abiCode.encode(["int64"], [2n ** 32n - 1n]);
-      await oracle["updateState(bytes)"](value);
+      await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
       expect(await oracle["readAsInt64(address)"](signer.address)).to.eq(
@@ -187,7 +187,7 @@ describe("Oracle", () => {
         keccak256(toUtf8Bytes(`key_${i}`))
       );
 
-      await oracle["updateState(bytes[],bytes32[])"](values, keys);
+      await oracle.updateStateBulk(values, keys);
 
       expect(
         await oracle["readAsString(address,bytes32)"](signer.address, keys[0])
@@ -220,9 +220,9 @@ describe("Oracle", () => {
         keccak256(toUtf8Bytes(`key_${i}`))
       );
 
-      await expect(
-        oracle["updateState(bytes[],bytes32[])"](values, keys)
-      ).to.be.revertedWith(await oracle.E_LENGTH_MISMATCH());
+      await expect(oracle.updateStateBulk(values, keys)).to.be.revertedWith(
+        await oracle.E_LENGTH_MISMATCH()
+      );
     });
   });
   describe("read timestamp", () => {
@@ -249,7 +249,7 @@ describe("Oracle", () => {
         keccak256(toUtf8Bytes(`key_${i}`))
       );
 
-      await oracle["updateState(bytes[],bytes32[])"](values, keys);
+      await oracle.updateStateBulk(values, keys);
       const timestamp = BigInt(
         (await hre.ethers.provider.getBlock("latest"))!.timestamp
       );
