@@ -26,9 +26,9 @@ describe("Oracle", () => {
         .withArgs(signer.address, value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsString(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["string"], value)[0]);
+      expect(await oracle.readAsStringByKey(signer.address, key)).to.eq(
+        abiCode.decode(["string"], value)[0]
+      );
     });
     it("uint256", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -36,9 +36,9 @@ describe("Oracle", () => {
       await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsUint256(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["uint256"], value)[0]);
+      expect(await oracle.readAsUint256ByKey(signer.address, key)).to.eq(
+        abiCode.decode(["uint256"], value)[0]
+      );
     });
     it("uint128", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -46,9 +46,9 @@ describe("Oracle", () => {
       await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsUint128(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["uint128"], value)[0]);
+      expect(await oracle.readAsUint128ByKey(signer.address, key)).to.eq(
+        abiCode.decode(["uint128"], value)[0]
+      );
     });
     it("uint64", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -56,9 +56,9 @@ describe("Oracle", () => {
       await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsUint64(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["uint64"], value)[0]);
+      expect(await oracle.readAsUint64ByKey(signer.address, key)).to.eq(
+        abiCode.decode(["uint64"], value)[0]
+      );
     });
     it("int256", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -66,9 +66,9 @@ describe("Oracle", () => {
       await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsInt256(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["int256"], value)[0]);
+      expect(await oracle.readAsInt256ByKey(signer.address, key)).to.eq(
+        abiCode.decode(["int256"], value)[0]
+      );
     });
     it("int128", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -76,9 +76,9 @@ describe("Oracle", () => {
       await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsInt128(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["int128"], value)[0]);
+      expect(await oracle.readAsInt128ByKey(signer.address, key)).to.eq(
+        abiCode.decode(["int128"], value)[0]
+      );
     });
     it("int64", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -86,9 +86,9 @@ describe("Oracle", () => {
       await oracle.updateStateByKey(value, key);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(
-        await oracle["readAsInt64(address,bytes32)"](signer.address, key)
-      ).to.eq(abiCode.decode(["int64"], value)[0]);
+      expect(await oracle.readAsInt64ByKey(signer.address, key)).to.eq(
+        abiCode.decode(["int64"], value)[0]
+      );
     });
     it("emit event", async () => {
       const key = keccak256(toUtf8Bytes("string"));
@@ -113,7 +113,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsString(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsString(signer.address)).to.eq(
         abiCode.decode(["string"], value)[0]
       );
     });
@@ -122,7 +122,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsUint256(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsUint256(signer.address)).to.eq(
         abiCode.decode(["uint256"], value)[0]
       );
     });
@@ -131,7 +131,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsUint128(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsUint128(signer.address)).to.eq(
         abiCode.decode(["uint128"], value)[0]
       );
     });
@@ -140,7 +140,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsUint64(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsUint64(signer.address)).to.eq(
         abiCode.decode(["uint64"], value)[0]
       );
     });
@@ -149,7 +149,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsInt256(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsInt256(signer.address)).to.eq(
         abiCode.decode(["int256"], value)[0]
       );
     });
@@ -158,7 +158,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsInt128(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsInt128(signer.address)).to.eq(
         abiCode.decode(["int128"], value)[0]
       );
     });
@@ -167,7 +167,7 @@ describe("Oracle", () => {
       await oracle.updateState(value);
 
       expect((await oracle.data(signer.address, key)).data).to.eq(value);
-      expect(await oracle["readAsInt64(address)"](signer.address)).to.eq(
+      expect(await oracle.readAsInt64(signer.address)).to.eq(
         abiCode.decode(["int64"], value)[0]
       );
     });
@@ -211,27 +211,27 @@ describe("Oracle", () => {
         )
       );
 
-      expect(
-        await oracle["readAsString(address,bytes32)"](signer.address, keys[0])
-      ).to.eq(abiCode.decode(["string"], values[0])[0]);
-      expect(
-        await oracle["readAsUint256(address,bytes32)"](signer.address, keys[1])
-      ).to.eq(abiCode.decode(["uint256"], values[1])[0]);
-      expect(
-        await oracle["readAsUint128(address,bytes32)"](signer.address, keys[2])
-      ).to.eq(abiCode.decode(["uint128"], values[2])[0]);
-      expect(
-        await oracle["readAsUint64(address,bytes32)"](signer.address, keys[3])
-      ).to.eq(abiCode.decode(["uint64"], values[3])[0]);
-      expect(
-        await oracle["readAsInt256(address,bytes32)"](signer.address, keys[4])
-      ).to.eq(abiCode.decode(["int256"], values[4])[0]);
-      expect(
-        await oracle["readAsInt128(address,bytes32)"](signer.address, keys[5])
-      ).to.eq(abiCode.decode(["int128"], values[5])[0]);
-      expect(
-        await oracle["readAsInt64(address,bytes32)"](signer.address, keys[6])
-      ).to.eq(abiCode.decode(["int64"], values[6])[0]);
+      expect(await oracle.readAsStringByKey(signer.address, keys[0])).to.eq(
+        abiCode.decode(["string"], values[0])[0]
+      );
+      expect(await oracle.readAsUint256ByKey(signer.address, keys[1])).to.eq(
+        abiCode.decode(["uint256"], values[1])[0]
+      );
+      expect(await oracle.readAsUint128ByKey(signer.address, keys[2])).to.eq(
+        abiCode.decode(["uint128"], values[2])[0]
+      );
+      expect(await oracle.readAsUint64ByKey(signer.address, keys[3])).to.eq(
+        abiCode.decode(["uint64"], values[3])[0]
+      );
+      expect(await oracle.readAsInt256ByKey(signer.address, keys[4])).to.eq(
+        abiCode.decode(["int256"], values[4])[0]
+      );
+      expect(await oracle.readAsInt128ByKey(signer.address, keys[5])).to.eq(
+        abiCode.decode(["int128"], values[5])[0]
+      );
+      expect(await oracle.readAsInt64ByKey(signer.address, keys[6])).to.eq(
+        abiCode.decode(["int64"], values[6])[0]
+      );
     });
     it("should revert if length does not match", async () => {
       const values = [
@@ -281,46 +281,25 @@ describe("Oracle", () => {
       );
 
       expect(
-        await oracle["readAsStringWithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[0]
-        )
+        await oracle.readAsStringWithTimestamp(signer.address, keys[0])
       ).to.deep.eq([abiCode.decode(["string"], values[0])[0], timestamp]);
       expect(
-        await oracle["readAsUint256WithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[1]
-        )
+        await oracle.readAsUint256WithTimestamp(signer.address, keys[1])
       ).to.deep.eq([abiCode.decode(["uint256"], values[1])[0], timestamp]);
       expect(
-        await oracle["readAsUint128WithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[2]
-        )
+        await oracle.readAsUint128WithTimestamp(signer.address, keys[2])
       ).to.deep.eq([abiCode.decode(["uint128"], values[2])[0], timestamp]);
       expect(
-        await oracle["readAsUint64WithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[3]
-        )
+        await oracle.readAsUint64WithTimestamp(signer.address, keys[3])
       ).to.deep.eq([abiCode.decode(["uint64"], values[3])[0], timestamp]);
       expect(
-        await oracle["readAsInt256WithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[4]
-        )
+        await oracle.readAsInt256WithTimestamp(signer.address, keys[4])
       ).to.deep.eq([abiCode.decode(["int256"], values[4])[0], timestamp]);
       expect(
-        await oracle["readAsInt128WithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[5]
-        )
+        await oracle.readAsInt128WithTimestamp(signer.address, keys[5])
       ).to.deep.eq([abiCode.decode(["int128"], values[5])[0], timestamp]);
       expect(
-        await oracle["readAsInt64WithTimestamp(address,bytes32)"](
-          signer.address,
-          keys[6]
-        )
+        await oracle.readAsInt64WithTimestamp(signer.address, keys[6])
       ).to.deep.eq([abiCode.decode(["int64"], values[6])[0], timestamp]);
     });
   });

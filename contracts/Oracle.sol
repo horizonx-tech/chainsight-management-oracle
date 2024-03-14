@@ -90,7 +90,7 @@ contract Oracle is IOracle, Initializable {
         return _readAsInt64(sender, key);
     }
 
-    function readAsString(
+    function readAsStringByKey(
         address sender,
         bytes32 key
     ) external view override returns (string memory) {
@@ -98,7 +98,7 @@ contract Oracle is IOracle, Initializable {
         return value;
     }
 
-    function readAsUint256(
+    function readAsUint256ByKey(
         address sender,
         bytes32 key
     ) external view override returns (uint256) {
@@ -106,7 +106,7 @@ contract Oracle is IOracle, Initializable {
         return value;
     }
 
-    function readAsUint128(
+    function readAsUint128ByKey(
         address sender,
         bytes32 key
     ) external view override returns (uint128) {
@@ -114,7 +114,7 @@ contract Oracle is IOracle, Initializable {
         return value;
     }
 
-    function readAsUint64(
+    function readAsUint64ByKey(
         address sender,
         bytes32 key
     ) external view override returns (uint64) {
@@ -122,7 +122,7 @@ contract Oracle is IOracle, Initializable {
         return value;
     }
 
-    function readAsInt256(
+    function readAsInt256ByKey(
         address sender,
         bytes32 key
     ) external view override returns (int256) {
@@ -130,7 +130,7 @@ contract Oracle is IOracle, Initializable {
         return value;
     }
 
-    function readAsInt128(
+    function readAsInt128ByKey(
         address sender,
         bytes32 key
     ) external view override returns (int128) {
@@ -138,7 +138,7 @@ contract Oracle is IOracle, Initializable {
         return value;
     }
 
-    function readAsInt64(
+    function readAsInt64ByKey(
         address sender,
         bytes32 key
     ) external view override returns (int64) {

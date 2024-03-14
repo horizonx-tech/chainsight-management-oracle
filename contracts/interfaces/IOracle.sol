@@ -32,37 +32,37 @@ interface IOracle {
 
     function readAsInt64(address sender) external view returns (int64);
 
-    function readAsString(
+    function readAsStringByKey(
         address sender,
         bytes32 key
     ) external view returns (string memory);
 
-    function readAsUint256(
+    function readAsUint256ByKey(
         address sender,
         bytes32 key
     ) external view returns (uint256);
 
-    function readAsUint128(
+    function readAsUint128ByKey(
         address sender,
         bytes32 key
     ) external view returns (uint128);
 
-    function readAsUint64(
+    function readAsUint64ByKey(
         address sender,
         bytes32 key
     ) external view returns (uint64);
 
-    function readAsInt256(
+    function readAsInt256ByKey(
         address sender,
         bytes32 key
     ) external view returns (int256);
 
-    function readAsInt128(
+    function readAsInt128ByKey(
         address sender,
         bytes32 key
     ) external view returns (int128);
 
-    function readAsInt64(
+    function readAsInt64ByKey(
         address sender,
         bytes32 key
     ) external view returns (int64);

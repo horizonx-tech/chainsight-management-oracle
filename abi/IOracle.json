@@ -30,11 +30,6 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "key",
-        "type": "bytes32"
       }
     ],
     "name": "readAsInt128",
@@ -54,9 +49,14 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       }
     ],
-    "name": "readAsInt128",
+    "name": "readAsInt128ByKey",
     "outputs": [
       {
         "internalType": "int128",
@@ -128,7 +128,7 @@
         "type": "bytes32"
       }
     ],
-    "name": "readAsInt256",
+    "name": "readAsInt256ByKey",
     "outputs": [
       {
         "internalType": "int256",
@@ -174,11 +174,6 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "key",
-        "type": "bytes32"
       }
     ],
     "name": "readAsInt64",
@@ -198,9 +193,14 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       }
     ],
-    "name": "readAsInt64",
+    "name": "readAsInt64ByKey",
     "outputs": [
       {
         "internalType": "int64",
@@ -246,11 +246,6 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "key",
-        "type": "bytes32"
       }
     ],
     "name": "readAsString",
@@ -270,9 +265,14 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       }
     ],
-    "name": "readAsString",
+    "name": "readAsStringByKey",
     "outputs": [
       {
         "internalType": "string",
@@ -344,7 +344,7 @@
         "type": "bytes32"
       }
     ],
-    "name": "readAsUint128",
+    "name": "readAsUint128ByKey",
     "outputs": [
       {
         "internalType": "uint128",
@@ -390,11 +390,6 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "key",
-        "type": "bytes32"
       }
     ],
     "name": "readAsUint256",
@@ -414,9 +409,14 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       }
     ],
-    "name": "readAsUint256",
+    "name": "readAsUint256ByKey",
     "outputs": [
       {
         "internalType": "uint256",
@@ -462,11 +462,6 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "key",
-        "type": "bytes32"
       }
     ],
     "name": "readAsUint64",
@@ -486,9 +481,14 @@
         "internalType": "address",
         "name": "sender",
         "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       }
     ],
-    "name": "readAsUint64",
+    "name": "readAsUint64ByKey",
     "outputs": [
       {
         "internalType": "uint64",
