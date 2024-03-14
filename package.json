@@ -19,6 +19,7 @@
     "@typechain/hardhat": "^9.1.0",
     "@types/mocha": "^10.0.2",
     "chai": "^4.3.10",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "ethers": "^6.8.0",
     "hardhat": "^2.18.1",
@@ -30,9 +31,9 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "compile": "SKIP_LOAD=true hardhat compile --force && yarn gen",
+    "compile": "cross-env SKIP_LOAD=true hardhat compile --force && yarn gen",
     "test": "yarn compile && hardhat test",
-    "gen": "SKIP_LOAD=true hardhat typechain",
+    "gen": "cross-env SKIP_LOAD=true hardhat typechain",
     "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy --wait 3",
     "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy --wait 3"
   }
