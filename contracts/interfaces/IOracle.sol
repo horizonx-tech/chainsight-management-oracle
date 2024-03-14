@@ -7,7 +7,7 @@ interface IOracle {
         uint64 timestamp;
     }
 
-    event StateUpdated(address indexed sender, bytes data, bytes32 key);
+    event StateUpdated(address indexed sender, bytes data, bytes32 indexed key);
 
     function updateState(bytes calldata data) external;
 
