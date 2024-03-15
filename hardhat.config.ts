@@ -8,6 +8,7 @@ import { HttpNetworkAccountsUserConfig } from "hardhat/types";
 require("dotenv").config();
 
 const MNEMONIC = process.env.MNEMONIC || "";
+const PRIVATE_KEY = `0x${process.env.PRIVATE_KEY}`
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
 const tasksPath = path.join(__dirname, "tasks");
 if (!SKIP_LOAD) {
@@ -37,6 +38,7 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
+      mainnet: process.env.ETHERSCAN_API_KEY || "",
       sepolia: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
     },
@@ -55,6 +57,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.etherscan.io/api",
           browserURL: "https://sepolia.etherscan.io/",
+        },
+      },
+      {
+        network: "mainnet",
+        chainId: 1,
+        urls: {
+          apiURL: "https://api.etherscan.io/api",
+          browserURL: "https://etherscan.io/",
         },
       },
     ],
@@ -77,6 +87,11 @@ const config: HardhatUserConfig = {
       chainId: 534351,
       url: "https://rpc.ankr.com/scroll_sepolia_testnet",
       accounts: ACCOUNTS,
+    },
+    mainnet: {
+      chainId: 1,
+      url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
+      accounts: [PRIVATE_KEY],
     },
   },
 };
