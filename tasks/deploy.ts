@@ -7,6 +7,7 @@ task("deploy", "Deploy the contracts").addOptionalParam("wait").setAction(async 
   const { ethers, network, upgrades } = hre;
   const deployer: HardhatEthersSigner = (await ethers.getSigners())[0];
   console.log(`deployer: ${deployer.address}`)
+  console.log(`balance: ${ethers.formatEther(await deployer.provider.getBalance(deployer.address))}`)
   console.log(`network: ${network.name}`)
 
   const oracle = (await upgrades.deployProxy(

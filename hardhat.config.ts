@@ -40,6 +40,7 @@ const config: HardhatUserConfig = {
     apiKey: {
       mainnet: process.env.ETHERSCAN_API_KEY || "",
       sepolia: process.env.ETHERSCAN_API_KEY || "",
+      holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
     },
     customChains: [
@@ -57,6 +58,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.etherscan.io/api",
           browserURL: "https://sepolia.etherscan.io/",
+        },
+      },
+      {
+        network: "holesky",
+        chainId: 17000,
+        urls: {
+          apiURL: "https://api-holesky.etherscan.io/api",
+          browserURL: "https://holesky.etherscan.io/",
         },
       },
       {
@@ -81,6 +90,11 @@ const config: HardhatUserConfig = {
     sepolia: {
       chainId: 11155111,
       url: "https://endpoints.omniatech.io/v1/eth/sepolia/public",
+      accounts: ACCOUNTS,
+    },
+    holesky: {
+      chainId: 17000,
+      url: "https://ethereum-holesky.blockpi.network/v1/rpc/public",
       accounts: ACCOUNTS,
     },
     scrollSepolia: {
