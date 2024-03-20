@@ -10,9 +10,16 @@ task("deploy", "Deploy the contracts").addOptionalParam("wait").setAction(async 
   console.log(`balance: ${ethers.formatEther(await deployer.provider.getBalance(deployer.address))}`)
   console.log(`network: ${network.name}`)
 
+  const feeData = await ethers.provider.getFeeData();
   const oracle = (await upgrades.deployProxy(
     new Oracle__factory(deployer),
-    { initializer: "initialize" }
+    {
+      initializer: "initialize",
+      txOverrides: {
+        maxPriorityFeePerGas: feeData.maxPriorityFeePerGas,
+        maxFeePerGas: feeData.maxFeePerGas
+      }
+    }
   )) as unknown as Oracle;
   console.log(`Oracle deployed tx: ${oracle.deploymentTransaction()?.hash}`)
   await oracle.deploymentTransaction()?.wait(wait);

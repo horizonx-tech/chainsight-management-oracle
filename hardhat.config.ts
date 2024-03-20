@@ -42,6 +42,7 @@ const config: HardhatUserConfig = {
       sepolia: process.env.ETHERSCAN_API_KEY || "",
       holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
+      // https://explorer.devnet.m1.movementlabs.xyz/ doesn't have API
     },
     customChains: [
       {
@@ -107,6 +108,12 @@ const config: HardhatUserConfig = {
       url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
       accounts: [PRIVATE_KEY],
     },
+    // Movement M1 Devnet
+    memvdevnetm1: {
+      chainId: 336,
+      url: "https://mevm.devnet.m1.movementlabs.xyz",
+      accounts: [PRIVATE_KEY],
+    }
   },
 };
 
