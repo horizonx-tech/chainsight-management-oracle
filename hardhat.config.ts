@@ -42,6 +42,7 @@ const config: HardhatUserConfig = {
       sepolia: process.env.ETHERSCAN_API_KEY || "",
       holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
+      baseSepolia: process.env.BASESCAN_API_KEY || "",
     },
     customChains: [
       {
@@ -76,6 +77,14 @@ const config: HardhatUserConfig = {
           browserURL: "https://etherscan.io/",
         },
       },
+      {
+        network: "baseSepolia",
+        chainId: 84532,
+        urls: {
+          apiURL: "https://api-sepolia.basescan.org/api",
+          browserURL: "https://sepolia.basescan.org/",
+        }
+      }
     ],
   },
 
@@ -101,6 +110,11 @@ const config: HardhatUserConfig = {
       chainId: 534351,
       url: "https://rpc.ankr.com/scroll_sepolia_testnet",
       accounts: ACCOUNTS,
+    },
+    baseSepolia: {
+      chainId: 84532,
+      url: "https://sepolia.base.org",
+      accounts: [PRIVATE_KEY],
     },
     mainnet: {
       chainId: 1,
