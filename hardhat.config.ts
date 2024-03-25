@@ -43,6 +43,7 @@ const config: HardhatUserConfig = {
       holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
       baseSepolia: process.env.BASESCAN_API_KEY || "",
+      arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
     },
     customChains: [
       {
@@ -83,8 +84,16 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.basescan.org/api",
           browserURL: "https://sepolia.basescan.org/",
-        }
-      }
+        },
+      },
+      {
+        network: "arbitrumSepolia",
+        chainId: 421614,
+        urls: {
+          apiURL: "https://api-sepolia.arbiscan.io/api",
+          browserURL: "https://sepolia.arbiscan.io/",
+        },
+      },
     ],
   },
 
@@ -94,7 +103,7 @@ const config: HardhatUserConfig = {
       accounts: {
         ...ACCOUNTS,
         mnemonic: "test test test test test test test test test test test junk",
-      }
+      },
     },
     sepolia: {
       chainId: 11155111,
@@ -105,6 +114,11 @@ const config: HardhatUserConfig = {
       chainId: 17000,
       url: "https://ethereum-holesky.blockpi.network/v1/rpc/public",
       accounts: ACCOUNTS,
+    },
+    arbitrumSepolia: {
+      chainId: 421614,
+      url: "https://arbitrum-sepolia.blockpi.network/v1/rpc/public",
+      accounts: [PRIVATE_KEY],
     },
     scrollSepolia: {
       chainId: 534351,
