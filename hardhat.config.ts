@@ -44,6 +44,7 @@ const config: HardhatUserConfig = {
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
       baseSepolia: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
+      lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
     customChains: [
       {
@@ -94,6 +95,14 @@ const config: HardhatUserConfig = {
           browserURL: "https://sepolia.arbiscan.io/",
         },
       },
+      {
+        network: "lineaSepolia",
+        chainId: 59141,
+        urls: {
+          apiURL: "https://api-sepolia.lineascan.build/api",
+          browserURL: "https://sepolia.lineascan.build/",
+        },
+      },
     ],
   },
 
@@ -128,6 +137,11 @@ const config: HardhatUserConfig = {
     baseSepolia: {
       chainId: 84532,
       url: "https://sepolia.base.org",
+      accounts: [PRIVATE_KEY],
+    },
+    lineaSepolia: {
+      chainId: 59141,
+      url: "https://rpc.sepolia.linea.build",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
