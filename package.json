@@ -41,7 +41,8 @@
     "deploy:base": "yarn compile && hardhat --network base deploy --wait 3",
     "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy --wait 3",
     "deploy:scroll": "yarn compile && hardhat --network scroll deploy --wait 3",
-    "deploy:lineaSepolia": "yarn compile && hardhat --network lineaSepolia deploy --wait 3",
-    "deploy:arbitrumSepolia": "yarn compile && hardhat --network arbitrumSepolia deploy --wait 3"
+    "deploy:arbitrumSepolia": "yarn compile && hardhat --network arbitrumSepolia deploy --wait 3",
+    "deploy:arbitrum": "yarn compile && hardhat --network arbitrum deploy --wait 3",
+    "deploy:lineaSepolia": "yarn compile && hardhat --network lineaSepolia deploy --wait 3"
   }
 }

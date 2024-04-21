@@ -46,6 +46,7 @@ const config: HardhatUserConfig = {
       baseSepolia: process.env.BASESCAN_API_KEY || "",
       base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
+      arbitrum: process.env.ARBISCAN_API_KEY || "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
     customChains: [
@@ -114,6 +115,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "arbitrum",
+        chainId: 42161,
+        urls: {
+          apiURL: "https://api.arbiscan.io/api",
+          browserURL: "https://arbiscan.io/",
+        },
+      },
+      {
         network: "lineaSepolia",
         chainId: 59141,
         urls: {
@@ -145,6 +154,11 @@ const config: HardhatUserConfig = {
     arbitrumSepolia: {
       chainId: 421614,
       url: "https://arbitrum-sepolia.blockpi.network/v1/rpc/public",
+      accounts: [PRIVATE_KEY],
+    },
+    arbitrum: {
+      chainId: 42161,
+      url: "https://arbitrum.drpc.org",
       accounts: [PRIVATE_KEY],
     },
     scrollSepolia: {
