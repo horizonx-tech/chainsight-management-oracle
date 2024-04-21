@@ -42,6 +42,7 @@ const config: HardhatUserConfig = {
       sepolia: process.env.ETHERSCAN_API_KEY || "",
       holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
+      scroll: process.env.SCROLLSCAN_API_KEY || "",
       baseSepolia: process.env.BASESCAN_API_KEY || "",
       base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
@@ -54,6 +55,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.scrollscan.com/api",
           browserURL: "https://sepolia.scrollscan.dev/",
+        },
+      },
+      {
+        network: "scroll",
+        chainId: 534352,
+        urls: {
+          apiURL: "https://api.scrollscan.com/api",
+          browserURL: "https://scrollscan.com/",
         },
       },
       {
@@ -142,6 +151,11 @@ const config: HardhatUserConfig = {
       chainId: 534351,
       url: "https://rpc.ankr.com/scroll_sepolia_testnet",
       accounts: ACCOUNTS,
+    },
+    scroll: {
+      chainId: 534352,
+      url: "https://scroll.drpc.org	",
+      accounts: [PRIVATE_KEY],
     },
     baseSepolia: {
       chainId: 84532,
