@@ -43,6 +43,7 @@ const config: HardhatUserConfig = {
       holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
       baseSepolia: process.env.BASESCAN_API_KEY || "",
+      base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
@@ -85,6 +86,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.basescan.org/api",
           browserURL: "https://sepolia.basescan.org/",
+        },
+      },
+      {
+        network: "base",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.basescan.org/api",
+          browserURL: "https://basescan.org/",
         },
       },
       {
@@ -137,6 +146,11 @@ const config: HardhatUserConfig = {
     baseSepolia: {
       chainId: 84532,
       url: "https://sepolia.base.org",
+      accounts: [PRIVATE_KEY],
+    },
+    base: {
+      chainId: 8453,
+      url: "https://base.drpc.org",
       accounts: [PRIVATE_KEY],
     },
     lineaSepolia: {

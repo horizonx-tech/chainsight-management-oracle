@@ -38,6 +38,7 @@
     "deploy:sepolia": "yarn compile && hardhat --network sepolia deploy --wait 3",
     "deploy:holesky": "yarn compile && hardhat --network holesky deploy --wait 3",
     "deploy:baseSepolia": "yarn compile && hardhat --network baseSepolia deploy --wait 3",
+    "deploy:base": "yarn compile && hardhat --network base deploy --wait 3",
     "deploy:scrollSepolia": "yarn compile && hardhat --network scrollSepolia deploy --wait 3",
     "deploy:lineaSepolia": "yarn compile && hardhat --network lineaSepolia deploy --wait 3",
     "deploy:arbitrumSepolia": "yarn compile && hardhat --network arbitrumSepolia deploy --wait 3"
