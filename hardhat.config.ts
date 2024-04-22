@@ -42,8 +42,12 @@ const config: HardhatUserConfig = {
       sepolia: process.env.ETHERSCAN_API_KEY || "",
       holesky: process.env.ETHERSCAN_API_KEY || "",
       scrollSepolia: process.env.SCROLLSCAN_API_KEY || "",
+      scroll: process.env.SCROLLSCAN_API_KEY || "",
       baseSepolia: process.env.BASESCAN_API_KEY || "",
+      base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
+      arbitrum: process.env.ARBISCAN_API_KEY || "",
+      lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
     customChains: [
       {
@@ -52,6 +56,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.scrollscan.com/api",
           browserURL: "https://sepolia.scrollscan.dev/",
+        },
+      },
+      {
+        network: "scroll",
+        chainId: 534352,
+        urls: {
+          apiURL: "https://api.scrollscan.com/api",
+          browserURL: "https://scrollscan.com/",
         },
       },
       {
@@ -87,11 +99,35 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "base",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.basescan.org/api",
+          browserURL: "https://basescan.org/",
+        },
+      },
+      {
         network: "arbitrumSepolia",
         chainId: 421614,
         urls: {
           apiURL: "https://api-sepolia.arbiscan.io/api",
           browserURL: "https://sepolia.arbiscan.io/",
+        },
+      },
+      {
+        network: "arbitrum",
+        chainId: 42161,
+        urls: {
+          apiURL: "https://api.arbiscan.io/api",
+          browserURL: "https://arbiscan.io/",
+        },
+      },
+      {
+        network: "lineaSepolia",
+        chainId: 59141,
+        urls: {
+          apiURL: "https://api-sepolia.lineascan.build/api",
+          browserURL: "https://sepolia.lineascan.build/",
         },
       },
     ],
@@ -120,14 +156,34 @@ const config: HardhatUserConfig = {
       url: "https://arbitrum-sepolia.blockpi.network/v1/rpc/public",
       accounts: [PRIVATE_KEY],
     },
+    arbitrum: {
+      chainId: 42161,
+      url: "https://arbitrum.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
     scrollSepolia: {
       chainId: 534351,
       url: "https://rpc.ankr.com/scroll_sepolia_testnet",
       accounts: ACCOUNTS,
     },
+    scroll: {
+      chainId: 534352,
+      url: "https://scroll.drpc.org	",
+      accounts: [PRIVATE_KEY],
+    },
     baseSepolia: {
       chainId: 84532,
       url: "https://sepolia.base.org",
+      accounts: [PRIVATE_KEY],
+    },
+    base: {
+      chainId: 8453,
+      url: "https://base.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
+    lineaSepolia: {
+      chainId: 59141,
+      url: "https://rpc.sepolia.linea.build",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
