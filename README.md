@@ -7,6 +7,7 @@ Latest
 | Network          | Address                                                                                                                         |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | Ethereum Mainnet | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)           |
+| Ethereum Sepolia | [0xf05c3767E8a136890fa991e520287D8eB46391f4](https://sepolia.etherscan.io/address/0xf05c3767E8a136890fa991e520287D8eB46391f4)   |
 | Arbitrum         | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://arbiscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)            |
 | Arbitrum Sepolia | [0xF4D696169bBF2C9372012F4FBA661E376862c581](https://sepolia.arbiscan.io/address/0xF4D696169bBF2C9372012F4FBA661E376862c581)    |
 | Base             | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://basescan.org/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)           |
