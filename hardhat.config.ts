@@ -47,6 +47,7 @@ const config: HardhatUserConfig = {
       base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       arbitrum: process.env.ARBISCAN_API_KEY || "",
+      bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
     customChains: [
@@ -123,6 +124,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "bevmTestnet",
+        chainId: 11503,
+        urls: {
+          apiURL: "https://scan-testnet.bevm.io/api",
+          browserURL: "https://scan-testnet.bevm.io",
+        },
+      },
+      {
         network: "lineaSepolia",
         chainId: 59141,
         urls: {
@@ -179,6 +188,11 @@ const config: HardhatUserConfig = {
     base: {
       chainId: 8453,
       url: "https://base.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
+    bevmTestnet: {
+      chainId: 11503,
+      url: "https://testnet.bevm.io",
       accounts: [PRIVATE_KEY],
     },
     lineaSepolia: {
