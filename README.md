@@ -15,6 +15,8 @@ Latest
 | Scroll           | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://scrollscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)         |
 | Scroll Sepolia   | [0xC93942ca46D4C9442815F3f2882fdBAC5A6118c4](https://sepolia.scrollscan.com/address/0xC93942ca46D4C9442815F3f2882fdBAC5A6118c4) |
 | Linea Sepolia    | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://sepolia.lineascan.build/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)|
+| BEVM Testnet     | [0x7968D01B77D50a24C5ebFD83939b8c7e55886B26](https://scan-testnet.bevm.io/address/0x7968D01B77D50a24C5ebFD83939b8c7e55886B26)|
+
 
 Ver [6bd3c94485ef027a9de6242b74577fda7fdb51a9](https://github.com/horizonx-tech/chainsight-management-oracle/tree/6bd3c94485ef027a9de6242b74577fda7fdb51a9)
 
