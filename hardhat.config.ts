@@ -48,6 +48,8 @@ const config: HardhatUserConfig = {
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       arbitrum: process.env.ARBISCAN_API_KEY || "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
+      mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
+      mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
     customChains: [
@@ -132,6 +134,22 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "mantleSepolia",
+        chainId: 5003,
+        urls: {
+          apiURL: "https://explorer.sepolia.mantle.xyz/api",
+          browserURL: "https://explorer.sepolia.mantle.xyz",
+        },
+      },
+      {
+        network: "mantle",
+        chainId: 5000,
+        urls: {
+          apiURL: "https://explorer.mantle.xyz/api",
+          browserURL: "https://explorer.mantle.xyz",
+        },
+      },
+      {
         network: "lineaSepolia",
         chainId: 59141,
         urls: {
@@ -198,6 +216,16 @@ const config: HardhatUserConfig = {
     lineaSepolia: {
       chainId: 59141,
       url: "https://rpc.sepolia.linea.build",
+      accounts: [PRIVATE_KEY],
+    },
+    mantleSepolia: {
+      chainId: 5003,
+      url: "https://rpc.sepolia.mantle.xyz",
+      accounts: [PRIVATE_KEY],
+    },
+    mantle: {
+      chainId: 5000,
+      url: "https://rpc.mantle.xyz",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
