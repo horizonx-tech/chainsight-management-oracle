@@ -18,6 +18,7 @@ Latest
 | BEVM Testnet     | [0x7968D01B77D50a24C5ebFD83939b8c7e55886B26](https://scan-testnet.bevm.io/address/0x7968D01B77D50a24C5ebFD83939b8c7e55886B26)       |
 | Mantle Sepolia   | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://explorer.sepolia.mantle.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)|
 | Mantle           | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://explorer.mantle.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)        |
+| Bitlayer Testnet | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)               |
 
 
 Ver [6bd3c94485ef027a9de6242b74577fda7fdb51a9](https://github.com/horizonx-tech/chainsight-management-oracle/tree/6bd3c94485ef027a9de6242b74577fda7fdb51a9)
