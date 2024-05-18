@@ -50,6 +50,7 @@ const config: HardhatUserConfig = {
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
+      bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
     },
     customChains: [
@@ -150,6 +151,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "bitlayerTestnet",
+        chainId: 200810,
+        urls: {
+          apiURL: "https://api-testnet.btrscan.com/scan/api",
+          browserURL: "https://testnet-scan.bitlayer.org",
+        },
+      },
+      {
         network: "lineaSepolia",
         chainId: 59141,
         urls: {
@@ -226,6 +235,12 @@ const config: HardhatUserConfig = {
     mantle: {
       chainId: 5000,
       url: "https://rpc.mantle.xyz",
+      accounts: [PRIVATE_KEY],
+    },
+    bitlayerTestnet: {
+      chainId: 200810,
+      gasPrice: 150000000,
+      url: "https://testnet-rpc.bitlayer.org",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
