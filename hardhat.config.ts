@@ -52,6 +52,7 @@ const config: HardhatUserConfig = {
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
+      defiverseTestnet: ""
     },
     customChains: [
       {
@@ -166,6 +167,14 @@ const config: HardhatUserConfig = {
           browserURL: "https://sepolia.lineascan.build/",
         },
       },
+      {
+        network: "defiverseTestnet",
+        chainId: 17117,
+        urls: {
+          apiURL: "https://rpc-testnet.defi-verse.org",
+          browserURL: "https://scan-testnet.defi-verse.org",
+        }
+      }
     ],
   },
 
@@ -248,6 +257,11 @@ const config: HardhatUserConfig = {
       url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
       accounts: [PRIVATE_KEY],
     },
+    defiverseTestnet: {
+      chainId: 17117,
+      url: "https://rpc-testnet.defi-verse.org",
+      accounts: ACCOUNTS,
+    }
   },
 };
 
