@@ -47,6 +47,7 @@ const config: HardhatUserConfig = {
       base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       arbitrum: process.env.ARBISCAN_API_KEY || "",
+      polygonZkevm: process.env.POLYGON_ZKEVM_API_KEY || "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
@@ -109,6 +110,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api.basescan.org/api",
           browserURL: "https://basescan.org/",
+        },
+      },
+      {
+        network: "polygonZkevm",
+        chainId: 1101,
+        urls: {
+          apiURL: "https://api-zkevm.polygonscan.com/api",
+          browserURL: "https://zkevm.polygonscan.com/",
         },
       },
       {
@@ -224,6 +233,11 @@ const config: HardhatUserConfig = {
     base: {
       chainId: 8453,
       url: "https://base.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
+    polygonZkevm: {
+      chainId: 1101,
+      url: "https://zkevm-rpc.com",
       accounts: [PRIVATE_KEY],
     },
     bevmTestnet: {
