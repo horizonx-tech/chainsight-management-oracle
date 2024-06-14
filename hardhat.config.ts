@@ -51,6 +51,7 @@ const config: HardhatUserConfig = {
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
+      berachainBartio: "",
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
       defiverseTestnet: ""
@@ -161,6 +162,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "berachainBartio",
+        chainId: 80084,
+        urls: {
+          apiURL: "https://api.bartio.beratrail.io/api",
+          browserURL: "https://bartio.beratrail.io",
+        },
+      },
+      {
         network: "bitlayerTestnet",
         chainId: 200810,
         urls: {
@@ -264,6 +273,11 @@ const config: HardhatUserConfig = {
       chainId: 200810,
       gasPrice: 150000000,
       url: "https://testnet-rpc.bitlayer.org",
+      accounts: [PRIVATE_KEY],
+    },
+    berachainBartio: {
+      chainId: 80084,
+      url: "https://bartio.rpc.berachain.com",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
