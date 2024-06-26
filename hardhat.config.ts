@@ -54,7 +54,8 @@ const config: HardhatUserConfig = {
       berachainBartio: "",
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
-      defiverseTestnet: ""
+      defiverseTestnet: "",
+      defiverse: ""
     },
     customChains: [
       {
@@ -192,6 +193,14 @@ const config: HardhatUserConfig = {
           apiURL: "https://rpc-testnet.defi-verse.org",
           browserURL: "https://scan-testnet.defi-verse.org",
         }
+      },
+      {
+        network: "defiverse",
+        chainId: 16116,
+        urls: {
+          apiURL: "https://scan.defi-verse.org/api/",
+          browserURL: "https://scan.defi-verse.org/",
+        }
       }
     ],
   },
@@ -280,15 +289,20 @@ const config: HardhatUserConfig = {
       url: "https://bartio.rpc.berachain.com",
       accounts: [PRIVATE_KEY],
     },
-    mainnet: {
-      chainId: 1,
-      url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
-      accounts: [PRIVATE_KEY],
-    },
     defiverseTestnet: {
       chainId: 17117,
       url: "https://rpc-testnet.defi-verse.org",
       accounts: ACCOUNTS,
+    },
+    defiverse: {
+      chainId: 16116,
+      url: "https://rpc.defi-verse.org/",
+      accounts: ACCOUNTS,
+    },
+    mainnet: {
+      chainId: 1,
+      url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
+      accounts: [PRIVATE_KEY],
     }
   },
 };
