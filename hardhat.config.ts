@@ -56,6 +56,7 @@ const config: HardhatUserConfig = {
       berachainBartio: "",
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
+      plumeTestnet: "",
       defiverseTestnet: "",
       defiverse: ""
     },
@@ -206,6 +207,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "plumeTestnet",
+        chainId: 161221135,
+        urls: {
+          apiURL: "https://testnet-explorer.plumenetwork.xyz",
+          browserURL: "https://testnet-explorer.plumenetwork.xyz",
+        },
+      },
+      {
         network: "defiverseTestnet",
         chainId: 17117,
         urls: {
@@ -316,6 +325,11 @@ const config: HardhatUserConfig = {
     berachainBartio: {
       chainId: 80084,
       url: "https://bartio.rpc.berachain.com",
+      accounts: [PRIVATE_KEY],
+    },
+    plumeTestnet: {
+      chainId: 161221135,
+      url: "https://testnet-rpc.plumenetwork.xyz/http",
       accounts: [PRIVATE_KEY],
     },
     defiverseTestnet: {
