@@ -48,6 +48,8 @@ const config: HardhatUserConfig = {
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       arbitrum: process.env.ARBISCAN_API_KEY || "",
       polygonZkevm: process.env.POLYGON_ZKEVM_API_KEY || "",
+      bnb: process.env.BSC_SCAN_API_KEY || "",
+      opbnb: process.env.OPBNB_SCAN_API_KEY || "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
@@ -138,6 +140,23 @@ const config: HardhatUserConfig = {
           browserURL: "https://arbiscan.io/",
         },
       },
+      {
+        network: "bnb",
+        chainId: 56,
+        urls: {
+          apiURL: "https://api.bscscan.com/api",
+          browserURL: "https://bscscan.com/",
+        },
+      },
+      {
+        network: "opbnb",
+        chainId: 204,
+        urls: {
+          apiURL: "https://api-opbnb.bscscan.com/api",
+          browserURL: "https://opbnb.bscscan.com/",
+        },
+      },
+
       {
         network: "bevmTestnet",
         chainId: 11503,
@@ -258,6 +277,16 @@ const config: HardhatUserConfig = {
       url: "https://zkevm-rpc.com",
       accounts: [PRIVATE_KEY],
     },
+    bnb: {
+      chainId: 56,
+      url: "https://binance.llamarpc.com",
+      accounts: [PRIVATE_KEY],
+    },
+    opbnb: {
+      chainId: 204,
+      url: "https://opbnb.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
     bevmTestnet: {
       chainId: 11503,
       url: "https://testnet.bevm.io",
@@ -297,7 +326,7 @@ const config: HardhatUserConfig = {
     defiverse: {
       chainId: 16116,
       url: "https://rpc.defi-verse.org/",
-      accounts: ACCOUNTS,
+      accounts: [PRIVATE_KEY],
     },
     mainnet: {
       chainId: 1,

@@ -19,7 +19,9 @@ Latest
 | Mantle Sepolia    | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://explorer.sepolia.mantle.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D) |
 | Mantle            | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://explorer.mantle.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)         |
 | Polygon zkEVM     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://zkevm.polygonscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)       |
-| Berachain Bartio  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bartio.beratrail.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)       |
+| BNB Smart Chain   | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bscscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                 |
+| opBNB             | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://zkevm.polygonscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)       |
+| Berachain Bartio  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bartio.beratrail.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)         |
 | Bitlayer Testnet  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                |
 | DeFiVerse Testnet | [0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6](https://scan-testnet.defi-verse.org/address/0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6) |
 
