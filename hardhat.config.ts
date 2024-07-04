@@ -57,6 +57,7 @@ const config: HardhatUserConfig = {
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
       plumeTestnet: "",
+      mode: "",
       defiverseTestnet: "",
       defiverse: ""
     },
@@ -215,6 +216,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "mode",
+        chainId: 34443,
+        urls: {
+          apiURL: "https://api.routescan.io/v2/network/mainnet/evm/34443/api",
+          browserURL: "https://modescan.io/",
+        },
+      },
+      {
         network: "defiverseTestnet",
         chainId: 17117,
         urls: {
@@ -340,6 +349,11 @@ const config: HardhatUserConfig = {
     defiverse: {
       chainId: 16116,
       url: "https://rpc.defi-verse.org/",
+      accounts: [PRIVATE_KEY],
+    },
+    mode: {
+      chainId: 34443,
+      url: "https://mainnet.mode.network",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
