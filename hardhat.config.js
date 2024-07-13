@@ -49,6 +49,27 @@ module.exports = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: {
+      defiverseMainnet: "no key",
+      defiverseTestnet: "no key",
+    },
+    customChains: [
+      {
+        network: "defiverseTestnet",
+        chainId: 17117,
+        urls: {
+          apiURL: "https://scan-testnet.defi-verse.org/api",
+          browserURL: "https://scan-testnet.defi-verse.org",
+        },
+      },
+      {
+        network: "defiverseMainnet",
+        chainId: 16116,
+        urls: {
+          apiURL: "https://scan.defi-verse.org/api",
+          browserURL: "https://scan.defi-verse.org",
+        },
+      },
+    ],
   },
 };

@@ -2,7 +2,9 @@ const hre = require("hardhat");
 const deployUtils = require("./deploy.utils");
 
 const DEFAULT_CONFIG = {
-  Oracle: "",
+  ProxyAdmin: "",
+  OracleLogic: "",
+  OracleProxy: "",
 };
 
 async function main() {
@@ -23,12 +25,55 @@ async function main() {
   console.log("Press Ctrl+C to cancel. Waiting for 10 seconds...");
   await deployUtils.wait(10000);
 
-  const logicContract = await deployUtils.deployContractIfNotExist(
+  // Deploy proxy admin
+  const proxyAdmin = await deployUtils.deployContractIfNotExist(
+    "DFProxyAdmin",
+    deployConfig.ProxyAdmin
+  );
+  deployConfig.ProxyAdmin = proxyAdmin.address;
+
+  // Deploy oracle logic
+  const oracleLogic = await deployUtils.deployContractIfNotExist(
     "Oracle",
-    deployConfig.Oracle,
+    deployConfig.OracleLogic,
     []
   );
-  deployConfig.Oracle = logicContract.address;
+  deployConfig.OracleLogic = oracleLogic.address;
+
+  // Deploy oracle proxy
+  const oracleProxy = await deployUtils.deployContractIfNotExist(
+    "DFProxy",
+    deployConfig.OracleProxy,
+    [deployConfig.OracleLogic, deployConfig.ProxyAdmin, []]
+  );
+  deployConfig.OracleProxy = oracleProxy.address;
+
+  if (oracleProxy.isNewDeployed) {
+    // Initialize
+    let oracleContract = await hre.ethers.getContractAt(
+      "Oracle",
+      oracleProxy.address
+    );
+
+    let tx = await oracleContract.initialize();
+    await tx.wait();
+    console.log("Oracle :> initialize tx:", tx.hash);
+  } else if (oracleLogic.isNewDeployed) {
+    // Upgrade logic if re-deploy
+    let proxyAdminContract = await hre.ethers.getContractAt(
+      "DFProxyAdmin",
+      deployConfig.ProxyAdmin
+    );
+    let tx = await proxyAdminContract.upgrade(
+      deployConfig.OracleProxy,
+      deployConfig.OracleLogic
+    );
+    await tx.wait();
+    console.log("Upgrade oracle logic tx:", tx.hash);
+  }
+
+  console.log("Done!");
+  console.log("");
 
   // Write config
   deployUtils.writeConfig(networkName, deployConfig, suffixConfig);
