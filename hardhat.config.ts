@@ -48,13 +48,19 @@ const config: HardhatUserConfig = {
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       arbitrum: process.env.ARBISCAN_API_KEY || "",
       polygonZkevm: process.env.POLYGON_ZKEVM_API_KEY || "",
+      bnb: process.env.BSC_SCAN_API_KEY || "",
+      opbnb: process.env.OPBNB_SCAN_API_KEY || "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       berachainBartio: "",
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
-      defiverseTestnet: ""
+      plumeTestnet: "",
+      mode: "",
+      neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
+      defiverseTestnet: "",
+      defiverse: ""
     },
     customChains: [
       {
@@ -138,6 +144,23 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "bnb",
+        chainId: 56,
+        urls: {
+          apiURL: "https://api.bscscan.com/api",
+          browserURL: "https://bscscan.com/",
+        },
+      },
+      {
+        network: "opbnb",
+        chainId: 204,
+        urls: {
+          apiURL: "https://api-opbnb.bscscan.com/api",
+          browserURL: "https://opbnb.bscscan.com/",
+        },
+      },
+
+      {
         network: "bevmTestnet",
         chainId: 11503,
         urls: {
@@ -186,11 +209,43 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "plumeTestnet",
+        chainId: 161221135,
+        urls: {
+          apiURL: "https://testnet-explorer.plumenetwork.xyz",
+          browserURL: "https://testnet-explorer.plumenetwork.xyz",
+        },
+      },
+      {
+        network: "mode",
+        chainId: 34443,
+        urls: {
+          apiURL: "https://api.routescan.io/v2/network/mainnet/evm/34443/api",
+          browserURL: "https://modescan.io/",
+        },
+      },
+      {
+        network: "neroTestnet",
+        chainId: 6660001,
+        urls: {
+          apiURL: "https://testnetscan.nerochain.io/api",
+          browserURL: "https://testnetscan.nerochain.io/",
+        },
+      },
+      {
         network: "defiverseTestnet",
         chainId: 17117,
         urls: {
           apiURL: "https://rpc-testnet.defi-verse.org",
           browserURL: "https://scan-testnet.defi-verse.org",
+        }
+      },
+      {
+        network: "defiverse",
+        chainId: 16116,
+        urls: {
+          apiURL: "https://scan.defi-verse.org/api/",
+          browserURL: "https://scan.defi-verse.org/",
         }
       }
     ],
@@ -249,6 +304,16 @@ const config: HardhatUserConfig = {
       url: "https://zkevm-rpc.com",
       accounts: [PRIVATE_KEY],
     },
+    bnb: {
+      chainId: 56,
+      url: "https://binance.llamarpc.com",
+      accounts: [PRIVATE_KEY],
+    },
+    opbnb: {
+      chainId: 204,
+      url: "https://opbnb.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
     bevmTestnet: {
       chainId: 11503,
       url: "https://testnet.bevm.io",
@@ -280,15 +345,35 @@ const config: HardhatUserConfig = {
       url: "https://bartio.rpc.berachain.com",
       accounts: [PRIVATE_KEY],
     },
-    mainnet: {
-      chainId: 1,
-      url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
+    plumeTestnet: {
+      chainId: 161221135,
+      url: "https://testnet-rpc.plumenetwork.xyz/http",
       accounts: [PRIVATE_KEY],
     },
     defiverseTestnet: {
       chainId: 17117,
       url: "https://rpc-testnet.defi-verse.org",
       accounts: ACCOUNTS,
+    },
+    defiverse: {
+      chainId: 16116,
+      url: "https://rpc.defi-verse.org/",
+      accounts: [PRIVATE_KEY],
+    },
+    mode: {
+      chainId: 34443,
+      url: "https://mainnet.mode.network",
+      accounts: [PRIVATE_KEY],
+    },
+    neroTestnet: {
+      chainId: 6660001,
+      url: "https://testnet.nerochain.io",
+      accounts: [PRIVATE_KEY],
+    },
+    mainnet: {
+      chainId: 1,
+      url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_MAINNET_KEY}`,
+      accounts: [PRIVATE_KEY],
     }
   },
 };
