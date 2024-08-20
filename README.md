@@ -24,6 +24,7 @@ Latest
 | Berachain Bartio  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bartio.beratrail.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)              |
 | Bitlayer Testnet  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                     |
 | Plume Testnet     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://testnet-explorer.plumenetwork.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)|
+| Nero Testnet      | [0x7968D01B77D50a24C5ebFD83939b8c7e55886B26](https://testnetscan.nerochain.io/address/0x7968D01B77D50a24C5ebFD83939b8c7e55886B26)         |
 | DeFiVerse Testnet | [0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6](https://scan-testnet.defi-verse.org/address/0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6)      |
 
 

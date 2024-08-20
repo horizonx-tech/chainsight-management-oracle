@@ -58,6 +58,7 @@ const config: HardhatUserConfig = {
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
       plumeTestnet: "",
       mode: "",
+      neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
       defiverseTestnet: "",
       defiverse: ""
     },
@@ -224,6 +225,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "neroTestnet",
+        chainId: 6660001,
+        urls: {
+          apiURL: "https://testnetscan.nerochain.io/api",
+          browserURL: "https://testnetscan.nerochain.io/",
+        },
+      },
+      {
         network: "defiverseTestnet",
         chainId: 17117,
         urls: {
@@ -354,6 +363,11 @@ const config: HardhatUserConfig = {
     mode: {
       chainId: 34443,
       url: "https://mainnet.mode.network",
+      accounts: [PRIVATE_KEY],
+    },
+    neroTestnet: {
+      chainId: 6660001,
+      url: "https://testnet.nerochain.io",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
