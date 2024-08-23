@@ -55,6 +55,7 @@
     "deploy:defiverseTestnet": "yarn compile && hardhat --network defiverseTestnet deploy --wait 3",
     "deploy:defiverseMainnet": "yarn compile && hardhat --network defiverseMainnet deploy --wait 3",
     "deploy:defiverse:testnet": "npx hardhat run --network defiverseTestnet scripts/deploy.js",
-    "deploy:defiverse:mainnet": "npx hardhat run --network defiverseMainnet scripts/deploy.js"
+    "deploy:defiverse:mainnet": "npx hardhat run --network defiverseMainnet scripts/deploy.js",
+    "flatten": "npx hardhat flatten ./contracts/proxy/DFProxyAdmin.sol > ./flatten/DFProxyAdmin-flatten.sol"
   }
 }
