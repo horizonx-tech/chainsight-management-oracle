@@ -57,6 +57,7 @@ const config: HardhatUserConfig = {
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
       plumeTestnet: "",
+      movementTestnet: "",
       mode: "",
       neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
       defiverseTestnet: "",
@@ -217,6 +218,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "movementTestnet",
+        chainId: 30732,
+        urls: {
+          apiURL: "https://explorer.devnet.imola.movementlabs.xyz",
+          browserURL: "https://explorer.devnet.imola.movementlabs.xyz",
+        },
+      },
+      {
         network: "mode",
         chainId: 34443,
         urls: {
@@ -348,6 +357,11 @@ const config: HardhatUserConfig = {
     plumeTestnet: {
       chainId: 161221135,
       url: "https://testnet-rpc.plumenetwork.xyz/http",
+      accounts: [PRIVATE_KEY],
+    },
+    movementTestnet: {
+      chainId: 30732,
+      url: "https://mevm.devnet.imola.movementlabs.xyz",
       accounts: [PRIVATE_KEY],
     },
     defiverseTestnet: {
