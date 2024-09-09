@@ -47,6 +47,7 @@ const config: HardhatUserConfig = {
       base: process.env.BASESCAN_API_KEY || "",
       arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
       arbitrum: process.env.ARBISCAN_API_KEY || "",
+      optimism: process.env.OPTIMISM_API_KEY || "",
       polygonZkevm: process.env.POLYGON_ZKEVM_API_KEY || "",
       bnb: process.env.BSC_SCAN_API_KEY || "",
       opbnb: process.env.OPBNB_SCAN_API_KEY || "",
@@ -142,6 +143,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api.arbiscan.io/api",
           browserURL: "https://arbiscan.io/",
+        },
+      },
+      {
+        network: "optimism",
+        chainId: 10,
+        urls: {
+          apiURL: "https://api-optimistic.etherscan.io/api",
+          browserURL: "https://optimistic.etherscan.io/",
         },
       },
       {
@@ -286,6 +295,11 @@ const config: HardhatUserConfig = {
     arbitrum: {
       chainId: 42161,
       url: "https://arbitrum.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
+    optimism: {
+      chainId: 10,
+      url: "https://mainnet.optimism.io",
       accounts: [PRIVATE_KEY],
     },
     scrollSepolia: {
