@@ -51,6 +51,7 @@ const config: HardhatUserConfig = {
       polygonZkevm: process.env.POLYGON_ZKEVM_API_KEY || "",
       bnb: process.env.BSC_SCAN_API_KEY || "",
       opbnb: process.env.OPBNB_SCAN_API_KEY || "",
+      soneiumMinato: "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
@@ -169,7 +170,14 @@ const config: HardhatUserConfig = {
           browserURL: "https://opbnb.bscscan.com/",
         },
       },
-
+      {
+        network: "soneiumMinato",
+        chainId: 1946,
+        urls: {
+          apiURL: "https://explorer-testnet.soneium.org/api",
+          browserURL: "https://explorer-testnet.soneium.org/",
+        },
+      },
       {
         network: "bevmTestnet",
         chainId: 11503,
@@ -335,6 +343,11 @@ const config: HardhatUserConfig = {
     opbnb: {
       chainId: 204,
       url: "https://opbnb.drpc.org",
+      accounts: [PRIVATE_KEY],
+    },
+    soneiumMinato: {
+      chainId: 1946,
+      url: "https://rpc.minato.soneium.org",
       accounts: [PRIVATE_KEY],
     },
     bevmTestnet: {
