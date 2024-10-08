@@ -1,0 +1,123 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0xFeDcE7764066921B340B5eb30084C1aaB580b450",
+      "txHash": "0xb7f08ccc982b312e2d2825e442c78174c56a0e589527bf135afc366bf972e1cc",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "999e4a7bc025afe5a34a490e53747fd882b79ee4058a8a539155f548c2232bd8": {
+      "address": "0x96cC5fF6ab262d6A2dc26B69313f528a362f2eE5",
+      "txHash": "0xb75222c8a471254ffdde4df3f93b63708350d1f587a8274dca5bc4f8debb1fb0",
+      "layout": {
+        "solcVersion": "0.8.21",
+        "storage": [
+          {
+            "label": "version",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64",
+            "contract": "Oracle",
+            "src": "contracts/Oracle.sol:8"
+          },
+          {
+            "label": "data",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_address,t_mapping(t_bytes32,t_struct(Value)1054_storage))",
+            "contract": "Oracle",
+            "src": "contracts/Oracle.sol:13"
+          }
+        ],
+        "types": {
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)10_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_bytes_storage": {
+            "label": "bytes",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_bytes32,t_struct(Value)1054_storage))": {
+            "label": "mapping(address => mapping(bytes32 => struct IOracle.Value))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(Value)1054_storage)": {
+            "label": "mapping(bytes32 => struct IOracle.Value)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Value)1054_storage": {
+            "label": "struct IOracle.Value",
+            "members": [
+              {
+                "label": "data",
+                "type": "t_bytes_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "timestamp",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
