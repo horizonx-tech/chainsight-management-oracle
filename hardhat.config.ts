@@ -61,6 +61,8 @@ const config: HardhatUserConfig = {
       plumeTestnet: "",
       movementTestnet: "",
       mode: "",
+      lumiaTestnet: "",
+      lumia: "",
       neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
       defiverseTestnet: "",
       defiverse: ""
@@ -251,6 +253,22 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "lumiaTestnet",
+        chainId: 1952959480,
+        urls: {
+          apiURL: "https://testnet-explorer.lumia.org/api",
+          browserURL: "https://testnet-explorer.lumia.org/",
+        }
+      },
+      {
+        network: "lumia",
+        chainId: 994873017,
+        urls: {
+          apiURL: "https://explorer.lumia.org/api",
+          browserURL: "https://explorer.lumia.org/",
+        }
+      },
+      {
         network: "neroTestnet",
         chainId: 6660001,
         urls: {
@@ -399,6 +417,16 @@ const config: HardhatUserConfig = {
     defiverse: {
       chainId: 16116,
       url: "https://rpc.defi-verse.org/",
+      accounts: [PRIVATE_KEY],
+    },
+    lumiaTestnet: {
+      chainId: 1952959480,
+      url: "https://testnet-rpc.lumia.org/",
+      accounts: [PRIVATE_KEY],
+    },
+    lumia: {
+      chainId: 994873017,
+      url: "https://mainnet-rpc.lumia.org/",
       accounts: [PRIVATE_KEY],
     },
     mode: {
