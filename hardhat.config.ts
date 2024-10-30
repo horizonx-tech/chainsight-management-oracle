@@ -61,6 +61,7 @@ const config: HardhatUserConfig = {
       plumeTestnet: "",
       movementTestnet: "",
       mode: "",
+      zircuitTestnet: "",
       lumiaTestnet: "",
       lumia: "",
       neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
@@ -269,6 +270,14 @@ const config: HardhatUserConfig = {
         }
       },
       {
+        network: "zircuitTestnet",
+        chainId: 48899,
+        urls: {
+          apiURL: "https://explorer.testnet.zircuit.com/api",
+          browserURL: "https://explorer.testnet.zircuit.com/",
+        },
+      },
+      {
         network: "neroTestnet",
         chainId: 6660001,
         urls: {
@@ -432,6 +441,11 @@ const config: HardhatUserConfig = {
     mode: {
       chainId: 34443,
       url: "https://mainnet.mode.network",
+      accounts: [PRIVATE_KEY],
+    },
+    zircuitTestnet: {
+      chainId: 48899,
+      url: "https://zircuit1-testnet.p2pify.com",
       accounts: [PRIVATE_KEY],
     },
     neroTestnet: {

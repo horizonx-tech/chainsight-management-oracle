@@ -27,6 +27,7 @@ Latest
 | Bitlayer Testnet  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                     |
 | Lumia             | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://explorer.lumia.org/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)               |
 | Lumia Testnet     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://testnet-explorer.lumia.org/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)       |
+| Zircuit Testnet   | [0x96cC5fF6ab262d6A2dc26B69313f528a362f2eE5](https://explorer.testnet.zircuit.com/address/0x96cC5fF6ab262d6A2dc26B69313f528a362f2eE5)     |
 | Plume Testnet     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://testnet-explorer.plumenetwork.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)|
 | Nero Testnet      | [0x7968D01B77D50a24C5ebFD83939b8c7e55886B26](https://testnetscan.nerochain.io/address/0x7968D01B77D50a24C5ebFD83939b8c7e55886B26)         |
 | DeFiVerse Testnet | [0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6](https://scan-testnet.defi-verse.org/address/0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6)      |
