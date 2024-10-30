@@ -57,6 +57,7 @@
     "deploy:plumeTestnet": "yarn compile && hardhat --network plumeTestnet deploy --wait 3",
     "deploy:movementTestnet": "yarn compile && hardhat --network movementTestnet deploy --wait 3",
     "deploy:mode": "yarn compile && hardhat --network mode deploy --wait 3",
+    "deploy:zircuitTestnet": "yarn compile && hardhat --network zircuitTestnet deploy --wait 3",
     "deploy:lumiaTestnet": "yarn compile && hardhat --network lumiaTestnet deploy --wait 3",
     "deploy:lumia": "yarn compile && hardhat --network lumia deploy --wait 3",
     "deploy:neroTestnet": "yarn compile && hardhat --network neroTestnet deploy --wait 3",
