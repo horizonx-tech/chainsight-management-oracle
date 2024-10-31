@@ -61,6 +61,7 @@
     "deploy:lumiaTestnet": "yarn compile && hardhat --network lumiaTestnet deploy --wait 3",
     "deploy:lumia": "yarn compile && hardhat --network lumia deploy --wait 3",
     "deploy:neroTestnet": "yarn compile && hardhat --network neroTestnet deploy --wait 3",
+    "deploy:nero": "yarn compile && hardhat --network nero deploy --wait 3",
     "deploy:defiverseTestnet": "yarn compile && hardhat --network defiverseTestnet deploy --wait 3",
     "deploy:defiverse": "yarn compile && hardhat --network defiverse deploy --wait 3"
   }
