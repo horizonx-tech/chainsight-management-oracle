@@ -65,6 +65,7 @@ const config: HardhatUserConfig = {
       lumiaTestnet: "",
       lumia: "",
       neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
+      nero: "",
       defiverseTestnet: "",
       defiverse: ""
     },
@@ -286,6 +287,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "nero",
+        chainId: 1689,
+        urls: {
+          apiURL: "https://testnetscan.nerochain.io/api",
+          browserURL: "https://testnetscan.nerochain.io/",
+        },
+      },
+      {
         network: "defiverseTestnet",
         chainId: 17117,
         urls: {
@@ -451,6 +460,11 @@ const config: HardhatUserConfig = {
     neroTestnet: {
       chainId: 6660001,
       url: "https://testnet.nerochain.io",
+      accounts: [PRIVATE_KEY],
+    },
+    nero: {
+      chainId: 1689,
+      url: "https://rpc.nerochain.io",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
