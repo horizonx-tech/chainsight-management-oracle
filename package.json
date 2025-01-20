@@ -50,6 +50,7 @@
     "deploy:bnb": "yarn compile && hardhat --network bnb deploy --wait 3",
     "deploy:opbnb": "yarn compile && hardhat --network opbnb deploy --wait 3",
     "deploy:soneiumMinato": "yarn compile && hardhat --network soneiumMinato deploy --wait 3",
+    "deploy:soneium": "yarn compile && hardhat --network soneium deploy --wait 3",
     "deploy:berachainBartio": "yarn compile && hardhat --network berachainBartio deploy --wait 3",
     "deploy:bevmTestnet": "yarn compile && hardhat --network bevmTestnet deploy --wait 3",
     "deploy:bitlayerTestnet": "yarn compile && hardhat --network bitlayerTestnet deploy --wait 3",

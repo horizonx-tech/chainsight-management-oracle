@@ -52,6 +52,7 @@ const config: HardhatUserConfig = {
       bnb: process.env.BSC_SCAN_API_KEY || "",
       opbnb: process.env.OPBNB_SCAN_API_KEY || "",
       soneiumMinato: "",
+      soneium: "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
@@ -180,6 +181,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://explorer-testnet.soneium.org/api",
           browserURL: "https://explorer-testnet.soneium.org/",
+        },
+      },
+      {
+        network: "soneium",
+        chainId: 1868,
+        urls: {
+          apiURL: "https://explorer.soneium.org/api",
+          browserURL: "https://soneium.blockscout.com/",
         },
       },
       {
@@ -384,6 +393,12 @@ const config: HardhatUserConfig = {
     soneiumMinato: {
       chainId: 1946,
       url: "https://rpc.minato.soneium.org",
+      accounts: [PRIVATE_KEY],
+    },
+    soneium: {
+      chainId: 1868,
+      gasPrice: 10_000_000_000,
+      url: "https://rpc.soneium.org",
       accounts: [PRIVATE_KEY],
     },
     bevmTestnet: {

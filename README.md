@@ -22,6 +22,7 @@ Latest
 | Polygon zkEVM     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://zkevm.polygonscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)            |
 | BNB Smart Chain   | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bscscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                      |
 | opBNB             | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://zkevm.polygonscan.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)            |
+| Soneium           | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://soneium.blockscout.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)           |
 | Soneium Minato    | [0xFeDcE7764066921B340B5eb30084C1aaB580b450](https://explorer-testnet.soneium.org/address/0xFeDcE7764066921B340B5eb30084C1aaB580b450)     |
 | Berachain Bartio  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bartio.beratrail.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)              |
 | Bitlayer Testnet  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                     |
