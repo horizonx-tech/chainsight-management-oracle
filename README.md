@@ -25,6 +25,7 @@ Latest
 | Soneium           | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://soneium.blockscout.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)           |
 | Soneium Minato    | [0xFeDcE7764066921B340B5eb30084C1aaB580b450](https://explorer-testnet.soneium.org/address/0xFeDcE7764066921B340B5eb30084C1aaB580b450)     |
 | Berachain Bartio  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://bartio.beratrail.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)              |
+| Monad Testnet     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://testnet.monadexplorer.com/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)        |
 | Bitlayer Testnet  | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://etherscan.io/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)                     |
 | Lumia             | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://explorer.lumia.org/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)               |
 | Lumia Testnet     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://testnet-explorer.lumia.org/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)       |
@@ -32,19 +33,3 @@ Latest
 | Plume Testnet     | [0x146447574c02deB3B802A1d4c9447CB7648aA56D](https://testnet-explorer.plumenetwork.xyz/address/0x146447574c02deB3B802A1d4c9447CB7648aA56D)|
 | Nero Testnet      | [0x7968D01B77D50a24C5ebFD83939b8c7e55886B26](https://testnetscan.nerochain.io/address/0x7968D01B77D50a24C5ebFD83939b8c7e55886B26)         |
 | DeFiVerse Testnet | [0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6](https://scan-testnet.defi-verse.org/address/0x07316CE428c4AB3ea542f3696e842a5Ed682c1B6)      |
-
-
-Ver [6bd3c94485ef027a9de6242b74577fda7fdb51a9](https://github.com/horizonx-tech/chainsight-management-oracle/tree/6bd3c94485ef027a9de6242b74577fda7fdb51a9)
-
-| Network          | Address                                                                                                                            |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Ethereum Sepolia | [0xB5Ef491939A6dBf17287666768C903F03602c550](https://sepolia.etherscan.io/address/0xB5Ef491939A6dBf17287666768C903F03602c550)      |
-| Scroll Sepolia   | [0xB5Ef491939A6dBf17287666768C903F03602c550](https://sepolia.scrollscan.dev/address/0xB5Ef491939A6dBf17287666768C903F03602c550)    |
-| Taiko Jolnir     | [0xB5Ef491939A6dBf17287666768C903F03602c550](https://explorer.jolnir.taiko.xyz/address/0xB5Ef491939A6dBf17287666768C903F03602c550) |
-
-## Setup
-
-```bash
-cp .env.template .env
-yarn compile
-```

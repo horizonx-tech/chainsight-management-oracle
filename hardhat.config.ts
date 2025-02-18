@@ -57,6 +57,8 @@ const config: HardhatUserConfig = {
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       berachainBartio: "",
+      berachain: process.env.BERASCAN_API_KEY || "",
+      monadTestnet: "",
       bitlayerTestnet: "",
       lineaSepolia: process.env.LINEASCAN_API_KEY || "",
       plumeTestnet: "",
@@ -221,6 +223,22 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api.bartio.beratrail.io/api",
           browserURL: "https://bartio.beratrail.io",
+        },
+      },
+      {
+        network: "berachain",
+        chainId: 80094,
+        urls: {
+          apiURL: "https://api.berascan.com/api",
+          browserURL: "https://berascan.com",
+        },
+      },
+      {
+        network: "monadTestnet",
+        chainId: 10143,
+        urls: {
+          apiURL: "https://testnet.monadexplorer.com/api",
+          browserURL: "https://testnet.monadexplorer.com",
         },
       },
       {
@@ -430,6 +448,16 @@ const config: HardhatUserConfig = {
     berachainBartio: {
       chainId: 80084,
       url: "https://bartio.rpc.berachain.com",
+      accounts: [PRIVATE_KEY],
+    },
+    berachain: {
+      chainId: 80094,
+      url: "https://rpc.berachain.com",
+      accounts: [PRIVATE_KEY],
+    },
+    monadTestnet: {
+      chainId: 10143,
+      url: "",// TODO:need to setup a public endpoint
       accounts: [PRIVATE_KEY],
     },
     plumeTestnet: {
