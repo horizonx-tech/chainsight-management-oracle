@@ -54,6 +54,7 @@
     "deploy:berachainBartio": "yarn compile && hardhat --network berachainBartio deploy --wait 3",
     "deploy:bevmTestnet": "yarn compile && hardhat --network bevmTestnet deploy --wait 3",
     "deploy:bitlayerTestnet": "yarn compile && hardhat --network bitlayerTestnet deploy --wait 3",
+    "deploy:monadTestnet": "yarn compile && hardhat --network monadTestnet deploy --wait 3",
     "deploy:lineaSepolia": "yarn compile && hardhat --network lineaSepolia deploy --wait 3",
     "deploy:plumeTestnet": "yarn compile && hardhat --network plumeTestnet deploy --wait 3",
     "deploy:movementTestnet": "yarn compile && hardhat --network movementTestnet deploy --wait 3",
