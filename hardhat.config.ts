@@ -52,7 +52,7 @@ const config: HardhatUserConfig = {
       bnb: process.env.BSC_SCAN_API_KEY || "",
       opbnb: process.env.OPBNB_SCAN_API_KEY || "",
       soneiumMinato: "",
-      soneium: "",
+      soneium: process.env.SONEIUM_API_KEY || "",
       bevmTestnet: process.env.BLOCKSCOUT_API_KEY || "",
       mantleSepolia: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
       mantle: process.env.MANTLE_BLOCKSCOUT_API_KEY || "",
@@ -189,7 +189,7 @@ const config: HardhatUserConfig = {
         network: "soneium",
         chainId: 1868,
         urls: {
-          apiURL: "https://explorer.soneium.org/api",
+          apiURL: "https://soneium.blockscout.com/api",
           browserURL: "https://soneium.blockscout.com/",
         },
       },
@@ -507,6 +507,7 @@ const config: HardhatUserConfig = {
     },
     nero: {
       chainId: 1689,
+      gasPrice: 1_000_000_000,
       url: "https://rpc.nerochain.io",
       accounts: [PRIVATE_KEY],
     },
