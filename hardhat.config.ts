@@ -69,6 +69,7 @@ const config: HardhatUserConfig = {
       lumia: "",
       neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
       nero: "",
+      sonic: process.env.SONICSCAN_API_KEY || "",
       defiverseTestnet: "",
       defiverse: ""
     },
@@ -322,6 +323,14 @@ const config: HardhatUserConfig = {
         },
       },
       {
+        network: "sonic",
+        chainId: 146,
+        urls: {
+          apiURL: "https://api.sonicscan.org/api",
+          browserURL: "https://sonicscan.org",
+        },
+      },
+      {
         network: "defiverseTestnet",
         chainId: 17117,
         urls: {
@@ -509,6 +518,11 @@ const config: HardhatUserConfig = {
       chainId: 1689,
       gasPrice: 1_000_000_000,
       url: "https://rpc.nerochain.io",
+      accounts: [PRIVATE_KEY],
+    },
+    sonic: {
+      chainId: 146,
+      url: "https://rpc.soniclabs.com",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
