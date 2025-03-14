@@ -69,6 +69,7 @@ const config: HardhatUserConfig = {
       lumia: "",
       neroTestnet: process.env.NERO_TESTNET_API_KEY || "",
       nero: "",
+      sonic: process.env.SONICSCAN_API_KEY || "",
       defiverseTestnet: "",
       defiverse: ""
     },
@@ -307,10 +308,10 @@ const config: HardhatUserConfig = {
       },
       {
         network: "neroTestnet",
-        chainId: 6660001,
+        chainId: 689,
         urls: {
-          apiURL: "https://testnetscan.nerochain.io/api",
-          browserURL: "https://testnetscan.nerochain.io/",
+          apiURL: "https://testnet.neroscan.io/api",
+          browserURL: "https://testnet.neroscan.io/",
         },
       },
       {
@@ -319,6 +320,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://testnetscan.nerochain.io/api",
           browserURL: "https://testnetscan.nerochain.io/",
+        },
+      },
+      {
+        network: "sonic",
+        chainId: 146,
+        urls: {
+          apiURL: "https://api.sonicscan.org/api",
+          browserURL: "https://sonicscan.org",
         },
       },
       {
@@ -501,14 +510,20 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
     },
     neroTestnet: {
-      chainId: 6660001,
-      url: "https://testnet.nerochain.io",
+      chainId: 689,
+      gasPrice: 1_000_000_000,
+      url: "https://rpc-testnet.nerochain.io",
       accounts: [PRIVATE_KEY],
     },
     nero: {
       chainId: 1689,
       gasPrice: 1_000_000_000,
       url: "https://rpc.nerochain.io",
+      accounts: [PRIVATE_KEY],
+    },
+    sonic: {
+      chainId: 146,
+      url: "https://rpc.soniclabs.com",
       accounts: [PRIVATE_KEY],
     },
     mainnet: {
