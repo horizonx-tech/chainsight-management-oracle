@@ -1,22 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-interface IOracle {
-    struct Value {
-        bytes data;
-        uint64 timestamp;
-    }
+import "./IOracleMinimal.sol";
 
-    event StateUpdated(address indexed sender, bytes data, bytes32 indexed key);
-
+interface IOracle is IOracleMinimal {
     function updateState(bytes calldata data) external;
 
     function updateStateByKey(bytes calldata data, bytes32 key) external;
-
-    function updateStateBulk(
-        bytes[] calldata data,
-        bytes32[] calldata keys
-    ) external;
 
     function readAsString(address sender) external view returns (string memory);
 
@@ -71,11 +61,6 @@ interface IOracle {
         address sender,
         bytes32 key
     ) external view returns (string memory, uint64);
-
-    function readAsUint256WithTimestamp(
-        address sender,
-        bytes32 key
-    ) external view returns (uint256, uint64);
 
     function readAsUint128WithTimestamp(
         address sender,
